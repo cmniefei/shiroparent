@@ -26,8 +26,9 @@ public class TestShiro1 {
         } catch (AuthenticationException e) {
             e.printStackTrace();
         }
-        subject.checkPermission("");
+        //是否已经认证
         System.out.println(subject.isAuthenticated());
+        //退出
         subject.logout();
 
         System.out.println(subject.isAuthenticated());
