@@ -20,6 +20,8 @@ public class ShiroRoleTest {
 
         UsernamePasswordToken token = new UsernamePasswordToken("zhang", "123456");
 
+        System.out.println(token.getPrincipal());
+        System.out.println(new String((char[])token.getCredentials()));
         try {
             subject.login(token);
         } catch (AuthenticationException e) {
@@ -31,8 +33,11 @@ public class ShiroRoleTest {
         //校验是否有对应的权限和资源，如果没有则抛出对应的异常UnauthorizedException
         subject.checkRole("role1");
         subject.checkPermission("user:create");
+
+        System.out.println(subject.getPrincipal());
         //退出
         subject.logout();
+
 
     }
 }
